@@ -15,11 +15,11 @@
     <lastBuildDate>Thu, 30 May 2024 02:21:46 +0000</lastBuildDate>
     <atom:link href="https://m4sk93.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>Test</title>
+      <title>使用VPS从0搭建Sui开发环境</title>
       <link>https://m4sk93.github.io/posts/test/</link>
       <pubDate>Thu, 30 May 2024 02:21:46 +0000</pubDate>
       <guid>https://m4sk93.github.io/posts/test/</guid>
-      <description>hello Move </description>
+      <description>购买VPS </description>
     </item>
   </channel>
 </rss>
