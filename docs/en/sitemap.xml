@@ -26,7 +26,31 @@
     <loc>https://m4sk93.github.io/posts/test/</loc>
     <lastmod>2024-05-30T02:21:46+00:00</lastmod>
   </url><url>
+    <loc>https://m4sk93.github.io/archives/</loc>
+    <xhtml:link
+                rel="alternate"
+                hreflang="fr"
+                href="https://m4sk93.github.io/fr/archives/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://m4sk93.github.io/archives/"
+                />
+  </url><url>
     <loc>https://m4sk93.github.io/categories/</loc>
+  </url><url>
+    <loc>https://m4sk93.github.io/search/</loc>
+    <xhtml:link
+                rel="alternate"
+                hreflang="fr"
+                href="https://m4sk93.github.io/fr/search/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://m4sk93.github.io/search/"
+                />
   </url><url>
     <loc>https://m4sk93.github.io/series/</loc>
   </url><url>
