@@ -12,8 +12,16 @@
     <generator>Hugo -- 0.120.4</generator>
     <language>en</language>
     <copyright>PaperMod Contributors</copyright>
-    <lastBuildDate>Thu, 30 May 2024 02:21:46 +0000</lastBuildDate>
+    <lastBuildDate>Thu, 30 May 2024 12:38:18 +0000</lastBuildDate>
     <atom:link href="https://m4sk93.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>MoveCTF2022 (1) Checkin </title>
+      <link>https://m4sk93.github.io/posts/movectf2022_1/</link>
+      <pubDate>Thu, 30 May 2024 12:38:18 +0000</pubDate>
+      <guid>https://m4sk93.github.io/posts/movectf2022_1/</guid>
+      <description>本文通过MoveCTF2022的签到题，介绍Sui基本的发布、测试方法。 Sui开发环境搭建请参考 使用VPS从0搭建Sui开发环境
+TBD </description>
+    </item>
     <item>
       <title>使用VPS从0搭建Sui开发环境</title>
       <link>https://m4sk93.github.io/posts/vps_sui_env/</link>
