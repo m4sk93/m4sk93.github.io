@@ -8,7 +8,7 @@ date = 2024-05-30T02:21:46Z
 在腾讯或阿里云购买一个香港的VPS，购买一个月即可，大概30块钱，不要舍不得，你会赚回来的这个月内，完成几个[letsmove](https://github.com/move-cn/letsmove)的学习任务，你就有钱买一年的美国VPS啦（用加密货币支付）。  
 比如我就用学习的奖励买了个域名和服务器，搭建了一个关于Sui的资源导航网站[Suiapps](https://suiapps.xyz/)(欢迎大家提交[PR](https://github.com/m4sk93/suiapps))。直接开干吧！
 
-## 开始搭建
+## 搭建环境
 
 ssh登录vps后，如果使用的是root账户,一定要新建一个普通权限账户(有些软件不允许使用root运行，比如马上用到的brew),并且将他添加到sudo组里.
 ```
@@ -85,7 +85,7 @@ curl --location --request POST 'https://faucet.testnet.sui.io/gas' \
 }'
 ```
 
-## 开始搭建第一个应用
+## 开始第一个应用
 自此环境搭建完毕,建议新手再学习下vim的基本操作
 https://docs.sui.io/guides/developer/first-app/write-package 
 
