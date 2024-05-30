@@ -16,10 +16,18 @@
     <atom:link href="https://m4sk93.github.io/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>使用VPS从0搭建Sui开发环境</title>
-      <link>https://m4sk93.github.io/posts/test/</link>
+      <link>https://m4sk93.github.io/posts/vps_sui_env/</link>
       <pubDate>Thu, 30 May 2024 02:21:46 +0000</pubDate>
-      <guid>https://m4sk93.github.io/posts/test/</guid>
-      <description>购买VPS </description>
+      <guid>https://m4sk93.github.io/posts/vps_sui_env/</guid>
+      <description>购买VPS 在腾讯或阿里云购买一个香港的VPS，购买一个月即可，大概30块钱，不要舍不得，你会赚回来的这个月内，完成几个letsmove的学习任务，你就有钱买一年的美国VPS啦（用加密货币支付）。
+比如我就用学习的奖励买了个域名和服务器，搭建了一个关于Sui的资源导航网站Suiapps(欢迎大家提交PR)。直接开干吧！
+开始搭建 ssh登录vps后，如果使用的是root账户,一定要新建一个普通权限账户(有些软件不允许使用root运行，比如马上用到的brew),并且将他添加到sudo组里.
+root@VM-0-7-debian:~# useradd -m test root@VM-0-7-debian:~# echo &amp;#39;test ALL=(ALL) NOPASSWD:ALL&amp;#39; &amp;gt;&amp;gt; /etc/sudoers root@VM-0-7-debian:~# su test $ bash test@VM-0-7-debian:/root$ ls ls: cannot open directory &amp;#39;.&amp;#39;: Permission denied test@VM-0-7-debian:/root$ cd test@VM-0-7-debian:~$ ls 参考官方文档搭建环境
+https://docs.sui.io/guides/developer/getting-started/sui-install
+使用brew按照sui 由于VPS的性能不够，所以不能使用源码安装sui，采用brew安装，先安装brew.
+使用普通权限账户执行一下命令
+/bin/bash -c &amp;#34;$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)&amp;#34; (echo; echo &amp;#39;eval &amp;#34;$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)&amp;#34;&amp;#39;) &amp;gt;&amp;gt; /home/test/.profile eval &amp;#34;$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)&amp;#34; 然后安装sui
+test@VM-0-7-debian:~$ brew install sui ==&amp;gt; Auto-updating Homebrew... Adjust how often this is run with HOMEBREW_AUTO_UPDATE_SECS or disable with HOMEBREW_NO_AUTO_UPDATE.</description>
     </item>
   </channel>
 </rss>
