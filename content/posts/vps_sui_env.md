@@ -6,7 +6,8 @@ date = 2024-05-30T02:21:46Z
 ## 购买VPS
 
 在腾讯或阿里云购买一个香港的VPS，购买一个月即可，大概30块钱，不要舍不得，你会赚回来的这个月内，完成几个[letsmove](https://github.com/move-cn/letsmove)的学习任务，你就有钱买一年的美国VPS啦（用加密货币支付）。  
-比如我就用学习的奖励买了个域名和服务器，搭建了一个关于Sui的资源导航网站[Suiapps](https://suiapps.xyz/)(欢迎大家提交[PR](https://github.com/m4sk93/suiapps))。直接开干吧！
+比如我就用学习的奖励买了个域名和服务器，搭建了一个关于Sui的资源导航网站[Suiapps](https://suiapps.xyz/)(欢迎大家提交[PR](https://github.com/m4sk93/suiapps))。   
+本文就是记录在这个全新的VPS上，从0开始搭建Sui的开发环境。  
 
 ## 搭建环境
 

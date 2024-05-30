@@ -175,7 +175,8 @@
   </header>
   <div class="entry-content">
     <p>购买VPS 在腾讯或阿里云购买一个香港的VPS，购买一个月即可，大概30块钱，不要舍不得，你会赚回来的这个月内，完成几个letsmove的学习任务，你就有钱买一年的美国VPS啦（用加密货币支付）。
-比如我就用学习的奖励买了个域名和服务器，搭建了一个关于Sui的资源导航网站Suiapps(欢迎大家提交PR)。直接开干吧！
+比如我就用学习的奖励买了个域名和服务器，搭建了一个关于Sui的资源导航网站Suiapps(欢迎大家提交PR)。
+本文就是记录在这个全新的VPS上，从0开始搭建Sui的开发环境。
 搭建环境 ssh登录vps后，如果使用的是root账户,一定要新建一个普通权限账户(有些软件不允许使用root运行，比如马上用到的brew),并且将他添加到sudo组里.
 root@VM-0-7-debian:~# useradd -m test root@VM-0-7-debian:~# echo &#39;test ALL=(ALL) NOPASSWD:ALL&#39; &gt;&gt; /etc/sudoers root@VM-0-7-debian:~# su test $ bash test@VM-0-7-debian:/root$ ls ls: cannot open directory &#39;.&#39;: Permission denied test@VM-0-7-debian:/root$ cd test@VM-0-7-debian:~$ ls 参考官方文档搭建环境
 https://docs.sui.io/guides/developer/getting-started/sui-install
