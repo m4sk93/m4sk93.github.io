@@ -24,7 +24,7 @@ test@VM-0-7-debian:~$ ls
 参考官方文档搭建环境  
 https://docs.sui.io/guides/developer/getting-started/sui-install
 
-### 使用brew按照sui
+### 使用brew安装sui
 由于VPS的性能不够，所以不能使用源码安装sui，采用brew安装，先安装brew.  
 使用普通权限账户执行一下命令
 ```
