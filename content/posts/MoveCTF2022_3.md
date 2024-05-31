@@ -136,4 +136,5 @@ module exp::exp {
 
 }
 ```
-问题在于：通过`flash::check(self, receipt);`消耗`receipt`时不需要传入coin
+问题在于：通过`flash::check(self, receipt);`消耗`receipt`时不需要传入coin.   
+coin也可以通过`deposit`消耗掉.
