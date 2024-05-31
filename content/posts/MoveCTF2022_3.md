@@ -156,9 +156,10 @@ module exp::exp {
 ```
 问题在于：coin可以通过`deposit`消耗掉.通过`check`消耗`receipt`时不需要发送coin.而且check判断余额的方式也不对。
 
-## 拓展
+## 拓展(Todo)
 
 使用Navi SDK试一试FlashLoad
+
 
 ## 参考资料
 
