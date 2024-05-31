@@ -12,8 +12,26 @@
     <generator>Hugo -- 0.120.4</generator>
     <language>en</language>
     <copyright>PaperMod Contributors</copyright>
-    <lastBuildDate>Thu, 30 May 2024 12:38:18 +0000</lastBuildDate>
+    <lastBuildDate>Fri, 31 May 2024 00:37:25 +0000</lastBuildDate>
     <atom:link href="https://m4sk93.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>MoveCTF2022 (3) FlashLoan</title>
+      <link>https://m4sk93.github.io/posts/movectf2022_3/</link>
+      <pubDate>Fri, 31 May 2024 00:37:25 +0000</pubDate>
+      <guid>https://m4sk93.github.io/posts/movectf2022_3/</guid>
+      <description>原题目在https://github.com/movebit/movectf-4/blob/master/sources/module.move
+考察闪电贷</description>
+    </item>
+    <item>
+      <title>MoveCTF2022 (2) SimpleGame </title>
+      <link>https://m4sk93.github.io/posts/movectf2022_2/</link>
+      <pubDate>Fri, 31 May 2024 00:37:21 +0000</pubDate>
+      <guid>https://m4sk93.github.io/posts/movectf2022_2/</guid>
+      <description>原题目在https://github.com/movebit/movectf-6
+本题是MoveCTF2022最难的一道，主要考察对随机数的攻击。
+先留个坑
+TBD </description>
+    </item>
     <item>
       <title>MoveCTF2022 (1) Checkin </title>
       <link>https://m4sk93.github.io/posts/movectf2022_1/</link>
