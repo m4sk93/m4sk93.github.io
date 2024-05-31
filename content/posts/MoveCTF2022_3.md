@@ -86,6 +86,8 @@ error[E06001]: unused value without 'drop'
    │                      ------- The type 'movectf2022_flashloan::flash::Receipt' does not have the ability 'drop'
 ```
 所以必须对coin和receipt进行处理,不能让你贷完就跑路
+参考 [Hot Potato](https://examples.sui.io/patterns/hot-potato.html)
+(Hot Potato is a name for a struct that has no abilities, hence it can only be packed and unpacked in its module. In this struct, you must call function B after function A in the case where function A returns a potato and function B consumes it.)
 ```
 /// Module: exp
 module exp::exp {
@@ -134,3 +136,4 @@ module exp::exp {
 
 }
 ```
+问题在于：通过`flash::check(self, receipt);`消耗`receipt`时不需要传入coin
