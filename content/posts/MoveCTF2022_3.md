@@ -27,14 +27,23 @@ movectf2022_flashloan = "0x2a61d471519b8e85a7730bebcfc3c5cace6ffffb2f5576d593821
 ```
 
 ## 编写exp
-为了方便调用，在配置文件中添加依赖
+为了调用题目，在配置文件中添加依赖
 ```
 [dependencies]
 Sui = { git = "https://github.com/MystenLabs/sui.git", subdir = "crates/sui-framework/packages/sui-framework", rev = "framework/testnet" }
 movectf2022_flashloan= { local = "../movectf2022_flashloan/" }
 ```
 
-初步分析getflag时会检查是否已经把池子抽干,直接试试：
+初步分析getflag时会检查是否已经把池子抽干,
+```
+    // check whether you can get the flag
+    public entry fun get_flag(self: &mut FlashLender, ctx: &mut TxContext) {
+        if (balance::value(&self.to_lend) == 0) {
+            event::emit(Flag { user: tx_context::sender(ctx), flag: true });
+        }
+    }
+```
+直接试试：
 ```
 /// Module: exp
 module exp::exp {
@@ -86,6 +95,13 @@ error[E06001]: unused value without 'drop'
    │                      ------- The type 'movectf2022_flashloan::flash::Receipt' does not have the ability 'drop'
 ```
 所以必须对coin和receipt进行处理,不能让你贷完就跑路
+注意看代码里的这个结构体：
+```
+    public struct Receipt {
+        flash_lender_id: ID,
+        amount: u64
+    }
+```
 参考 [Hot Potato](https://examples.sui.io/patterns/hot-potato.html)
 (Hot Potato is a name for a struct that has no abilities, hence it can only be packed and unpacked in its module. In this struct, you must call function B after function A in the case where function A returns a potato and function B consumes it.)
 ```
@@ -106,7 +122,9 @@ module exp::exp {
 }
 ```
 有借有还，这下成功了.
+
 问题来了，可以不还吗？？？
+
 还有一种利用方式
 ```
 /// Module: exp
@@ -136,5 +154,15 @@ module exp::exp {
 
 }
 ```
-问题在于：通过`flash::check(self, receipt);`消耗`receipt`时不需要传入coin.   
-coin也可以通过`deposit`消耗掉.
+问题在于：coin可以通过`deposit`消耗掉.通过`check`消耗`receipt`时不需要发送coin.而且check判断余额的方式也不对。
+
+## 拓展
+
+使用Navi SDK试一试FlashLoad
+
+## 参考资料
+
+感谢大佬们无私分享
+- [MoveCTF 2022 题解](https://lanford33.com/movectf-2022)
+- [https://learnblockchain.cn/index.php/article/5025](https://learnblockchain.cn/index.php/article/5025)
+
