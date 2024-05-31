@@ -19,8 +19,10 @@
       <link>https://m4sk93.github.io/posts/movectf2022_1/</link>
       <pubDate>Thu, 30 May 2024 12:38:18 +0000</pubDate>
       <guid>https://m4sk93.github.io/posts/movectf2022_1/</guid>
-      <description>本文通过MoveCTF2022的签到题，介绍Sui基本的发布、测试方法。 Sui开发环境搭建请参考 使用VPS从0搭建Sui开发环境
-TBD </description>
+      <description>本文通过MoveCTF2022的签到题，介绍Sui基本的发布、测试方法。 Sui开发环境搭建请参考 使用VPS从0搭建Sui开发环境 原题目在https://github.com/movebit/movectf-1/blob/master/sources/module.move
+搭建题目环境 在testnet搭建
+由于Move2024版本的变化，调整了下源码
+test@VM-0-7-debian:~$ sui client switch --env testnet Active environment switched to [testnet] test@VM-0-7-debian:~$ sui move new movectf2022_checkin test@VM-0-7-debian:~$ cd movectf2022_checkin/ test@VM-0-7-debian:~/movectf2022_checkin$ ls Move.toml sources tests test@VM-0-7-debian:~/movectf2022_checkin$ cd sources/ test@VM-0-7-debian:~/movectf2022_checkin/sources$ ls movectf2022_checkin.move test@VM-0-7-debian:~/movectf2022_checkin/sources$ vim movectf2022_checkin.move test@VM-0-7-debian:~/movectf2022_checkin/sources$ cat movectf2022_checkin.move /// Module: movectf2022_checkin module movectf2022_checkin::movectf2022_checkin { use sui::event; use sui::tx_context::{Self, TxContext}; ///Visibility annotations are required on struct declarations from the Move 2024 edition onwards. ///struct Flag has copy, drop { public struct Flag has copy, drop { user: address, flag: bool } public entry fun get_flag(ctx: &amp;amp;mut TxContext) { event::emit(Flag { user: tx_context::sender(ctx), flag: true }) } } test@VM-0-7-debian:~/movectf2022_checkin$ sui move build .</description>
     </item>
     <item>
       <title>使用VPS从0搭建Sui开发环境</title>
