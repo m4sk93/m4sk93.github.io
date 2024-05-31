@@ -166,5 +166,5 @@ module exp::exp {
 
 感谢大佬们无私分享
 - [MoveCTF 2022 题解](https://lanford33.com/movectf-2022)
-- [https://learnblockchain.cn/index.php/article/5025](https://learnblockchain.cn/index.php/article/5025)
+- [MoveCTF 所有题解Writeup](https://learnblockchain.cn/index.php/article/5025)
 
