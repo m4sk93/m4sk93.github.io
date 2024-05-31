@@ -1,5 +1,5 @@
 +++
-title = 'MoveCTF2022 (1) Checkin '
+title = 'MoveCTF2022 Checkin '
 date = 2024-05-30T12:38:18Z
 +++
 

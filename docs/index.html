@@ -192,35 +192,22 @@
 
 <article class="post-entry"> 
   <header class="entry-header">
-    <h2 class="entry-hint-parent">MoveCTF2022 (3) FlashLoan
+    <h2 class="entry-hint-parent">MoveCTF2022 FlashLoan
     </h2>
   </header>
   <div class="entry-content">
-    <p>原题目在https://github.com/movebit/movectf-4/blob/master/sources/module.move
-考察闪电贷</p>
+    <p>原题目在https://github.com/movebit/movectf-4/blob/master/sources/module.move 考察闪电贷 由于Move2024有些变化，我对源码做了微调https://github.com/m4sk93/movectf/tree/main/movectf2022/flashloan
+环境搭建 参考MoveCTF2022 Checkin部署题目后，
+为了后续调用方便，在配置文件中添加package ID
+[package] name = &#34;movectf2022_flashloan&#34; edition = &#34;2024.beta&#34; # edition = &#34;legacy&#34; to use legacy (pre-2024) Move # license = &#34;&#34; # e.g., &#34;MIT&#34;, &#34;GPL&#34;, &#34;Apache 2.0&#34; # authors = [&#34;...&#34;] # e.g., [&#34;Joe Smith (joesmith@noemail.com)&#34;, &#34;John Snow (johnsnow@noemail.com)&#34;] published-at = &#34;0x2a61d471519b8e85a7730bebcfc3c5cace6ffffb2f5576d593821422d514adc2&#34; # package id [dependencies] Sui = { git = &#34;https://github.com/MystenLabs/sui.git&#34;, subdir = &#34;crates/sui-framework/packages/sui-framework&#34;, rev = &#34;framework/testnet&#34; } [addresses] #movectf2022_flashloan = &#34;0x0&#34; movectf2022_flashloan = &#34;0x2a61d471519b8e85a7730bebcfc3c5cace6ffffb2f5576d593821422d514adc2&#34; # package id 编写exp 为了方便调用，在配置文件中添加依赖...</p>
   </div>
-  <footer class="entry-footer"><span title='2024-05-31 00:37:25 +0000 UTC'>May 31, 2024</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Theme PaperMod</footer>
-  <a class="entry-link" aria-label="post link to MoveCTF2022 (3) FlashLoan" href="https://m4sk93.github.io/posts/movectf2022_3/"></a>
+  <footer class="entry-footer"><span title='2024-05-31 00:37:25 +0000 UTC'>May 31, 2024</span>&nbsp;·&nbsp;3 min&nbsp;·&nbsp;Theme PaperMod</footer>
+  <a class="entry-link" aria-label="post link to MoveCTF2022 FlashLoan" href="https://m4sk93.github.io/posts/movectf2022_3/"></a>
 </article>
 
 <article class="post-entry"> 
   <header class="entry-header">
-    <h2 class="entry-hint-parent">MoveCTF2022 (2) SimpleGame 
-    </h2>
-  </header>
-  <div class="entry-content">
-    <p>原题目在https://github.com/movebit/movectf-6
-本题是MoveCTF2022最难的一道，主要考察对随机数的攻击。
-先留个坑
-TBD </p>
-  </div>
-  <footer class="entry-footer"><span title='2024-05-31 00:37:21 +0000 UTC'>May 31, 2024</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Theme PaperMod</footer>
-  <a class="entry-link" aria-label="post link to MoveCTF2022 (2) SimpleGame " href="https://m4sk93.github.io/posts/movectf2022_2/"></a>
-</article>
-
-<article class="post-entry"> 
-  <header class="entry-header">
-    <h2 class="entry-hint-parent">MoveCTF2022 (1) Checkin 
+    <h2 class="entry-hint-parent">MoveCTF2022 Checkin 
     </h2>
   </header>
   <div class="entry-content">
@@ -230,7 +217,7 @@ TBD </p>
 test@VM-0-7-debian:~$ sui client switch --env testnet Active environment switched to [testnet] test@VM-0-7-debian:~$ sui move new movectf2022_checkin test@VM-0-7-debian:~$ cd movectf2022_checkin/ test@VM-0-7-debian:~/movectf2022_checkin$ ls Move.toml sources tests test@VM-0-7-debian:~/movectf2022_checkin$ cd sources/ test@VM-0-7-debian:~/movectf2022_checkin/sources$ ls movectf2022_checkin.move test@VM-0-7-debian:~/movectf2022_checkin/sources$ vim movectf2022_checkin.move test@VM-0-7-debian:~/movectf2022_checkin/sources$ cat movectf2022_checkin.move /// Module: movectf2022_checkin module movectf2022_checkin::movectf2022_checkin { use sui::event; use sui::tx_context::{Self, TxContext}; ///Visibility annotations are required on struct declarations from the Move 2024 edition onwards. ///struct Flag has copy, drop { public struct Flag has copy, drop { user: address, flag: bool } public entry fun get_flag(ctx: &amp;mut TxContext) { event::emit(Flag { user: tx_context::sender(ctx), flag: true }) } } test@VM-0-7-debian:~/movectf2022_checkin$ sui move build ....</p>
   </div>
   <footer class="entry-footer"><span title='2024-05-30 12:38:18 +0000 UTC'>May 30, 2024</span>&nbsp;·&nbsp;2 min&nbsp;·&nbsp;Theme PaperMod</footer>
-  <a class="entry-link" aria-label="post link to MoveCTF2022 (1) Checkin " href="https://m4sk93.github.io/posts/movectf2022_1/"></a>
+  <a class="entry-link" aria-label="post link to MoveCTF2022 Checkin " href="https://m4sk93.github.io/posts/movectf2022_1/"></a>
 </article>
 
 <article class="post-entry"> 

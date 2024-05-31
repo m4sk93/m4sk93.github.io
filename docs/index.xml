@@ -15,25 +15,17 @@
     <lastBuildDate>Fri, 31 May 2024 00:37:25 +0000</lastBuildDate>
     <atom:link href="https://m4sk93.github.io/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>MoveCTF2022 (3) FlashLoan</title>
+      <title>MoveCTF2022 FlashLoan</title>
       <link>https://m4sk93.github.io/posts/movectf2022_3/</link>
       <pubDate>Fri, 31 May 2024 00:37:25 +0000</pubDate>
       <guid>https://m4sk93.github.io/posts/movectf2022_3/</guid>
-      <description>原题目在https://github.com/movebit/movectf-4/blob/master/sources/module.move
-考察闪电贷</description>
+      <description>原题目在https://github.com/movebit/movectf-4/blob/master/sources/module.move 考察闪电贷 由于Move2024有些变化，我对源码做了微调https://github.com/m4sk93/movectf/tree/main/movectf2022/flashloan
+环境搭建 参考MoveCTF2022 Checkin部署题目后，
+为了后续调用方便，在配置文件中添加package ID
+[package] name = &amp;#34;movectf2022_flashloan&amp;#34; edition = &amp;#34;2024.beta&amp;#34; # edition = &amp;#34;legacy&amp;#34; to use legacy (pre-2024) Move # license = &amp;#34;&amp;#34; # e.g., &amp;#34;MIT&amp;#34;, &amp;#34;GPL&amp;#34;, &amp;#34;Apache 2.0&amp;#34; # authors = [&amp;#34;...&amp;#34;] # e.g., [&amp;#34;Joe Smith (joesmith@noemail.com)&amp;#34;, &amp;#34;John Snow (johnsnow@noemail.com)&amp;#34;] published-at = &amp;#34;0x2a61d471519b8e85a7730bebcfc3c5cace6ffffb2f5576d593821422d514adc2&amp;#34; # package id [dependencies] Sui = { git = &amp;#34;https://github.com/MystenLabs/sui.git&amp;#34;, subdir = &amp;#34;crates/sui-framework/packages/sui-framework&amp;#34;, rev = &amp;#34;framework/testnet&amp;#34; } [addresses] #movectf2022_flashloan = &amp;#34;0x0&amp;#34; movectf2022_flashloan = &amp;#34;0x2a61d471519b8e85a7730bebcfc3c5cace6ffffb2f5576d593821422d514adc2&amp;#34; # package id 编写exp 为了方便调用，在配置文件中添加依赖</description>
     </item>
     <item>
-      <title>MoveCTF2022 (2) SimpleGame </title>
-      <link>https://m4sk93.github.io/posts/movectf2022_2/</link>
-      <pubDate>Fri, 31 May 2024 00:37:21 +0000</pubDate>
-      <guid>https://m4sk93.github.io/posts/movectf2022_2/</guid>
-      <description>原题目在https://github.com/movebit/movectf-6
-本题是MoveCTF2022最难的一道，主要考察对随机数的攻击。
-先留个坑
-TBD </description>
-    </item>
-    <item>
-      <title>MoveCTF2022 (1) Checkin </title>
+      <title>MoveCTF2022 Checkin </title>
       <link>https://m4sk93.github.io/posts/movectf2022_1/</link>
       <pubDate>Thu, 30 May 2024 12:38:18 +0000</pubDate>
       <guid>https://m4sk93.github.io/posts/movectf2022_1/</guid>
