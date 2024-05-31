@@ -95,6 +95,7 @@ error[E06001]: unused value without 'drop'
    │                      ------- The type 'movectf2022_flashloan::flash::Receipt' does not have the ability 'drop'
 ```
 所以必须对coin和receipt进行处理,不能让你贷完就跑路
+
 注意看代码里的这个结构体：
 ```
     public struct Receipt {
