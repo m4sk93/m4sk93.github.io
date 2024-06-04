@@ -130,3 +130,7 @@ module exp::exp {
     }
 }
 ```
+
+## 参考资料
+- [MoveCTF 2024 Writeup](https://ambergroup.medium.com/movectf-2024-writeup-f74784e020c4)
+
