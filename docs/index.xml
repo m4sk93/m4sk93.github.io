@@ -19,7 +19,9 @@
       <link>https://m4sk93.github.io/posts/movectf2024_swap/</link>
       <pubDate>Mon, 03 Jun 2024 01:46:20 +0000</pubDate>
       <guid>https://m4sk93.github.io/posts/movectf2024_swap/</guid>
-      <description>https://github.com/movebit/movectf2024-day1/tree/main/swap</description>
+      <description>考察闪电贷 题目源码 https://github.com/movebit/movectf2024-day1/tree/main/swap
+环境搭建 部署后，先调用初始化函数
+#!/bin/bash PackageID=0x2d1ee80d8152a1b3f941c915748a680a1467dcdffe3f261527b190deddf8e48a minta=0x5bc9a9a9ed82b9a0de90b6ec3926b162db1a5149937e88fb9c5e49e700d8cde9 #ObjectType: 0x2d1ee80d8152a1b3f941c915748a680a1467dcdffe3f261527b190deddf8e48a::ctfa::MintA&amp;lt;0x2d1ee80d8152a1b3f941c915748a680a1467dcdffe3f261527b190deddf8e48a::ctfa::CTFA&amp;gt; a_type=&amp;#39;0x2d1ee80d8152a1b3f941c915748a680a1467dcdffe3f261527b190deddf8e48a::ctfa::CTFA&amp;#39; mintb=0xb6bfd99e4341eaa3e630982750bcd4b75b1cd9d86dbeac46a83b84731bb15fb9 #ObjectType: 0x2d1ee80d8152a1b3f941c915748a680a1467dcdffe3f261527b190deddf8e48a::ctfb::MintB&amp;lt;0x2d1ee80d8152a1b3f941c915748a680a1467dcdffe3f261527b190deddf8e48a::ctfb::CTFB&amp;gt; b_type=&amp;#39;0x2d1ee80d8152a1b3f941c915748a680a1467dcdffe3f261527b190deddf8e48a::ctfb::CTFB&amp;#39; sui client call --package $PackageID \ --module vault \ --function initialize \ --type-args $a_type $b_type \ --args $minta $mintb \ # public entry fun initialize&amp;lt;A,B&amp;gt;(capa: MintA&amp;lt;A&amp;gt;, capb: MintB&amp;lt;B&amp;gt;,ctx: &amp;amp;mut TxContext) { # let vault = Vault&amp;lt;A, B&amp;gt; { # id: object::new(ctx), # coin_a: coin::into_balance(ctfa::mint_for_vault(capa, ctx)), # coin_b: coin::into_balance(ctfb::mint_for_vault(capb, ctx)), # flashed: false # }; # transfer::share_object(vault); # } 初始化操作会给vault 100个coinA和100个coinB,给sender 10个coinA和10个coinB</description>
     </item>
     <item>
       <title>MoveCTF2022 FlashLoan</title>

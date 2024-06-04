@@ -196,9 +196,11 @@
     </h2>
   </header>
   <div class="entry-content">
-    <p>https://github.com/movebit/movectf2024-day1/tree/main/swap</p>
+    <p>考察闪电贷 题目源码 https://github.com/movebit/movectf2024-day1/tree/main/swap
+环境搭建 部署后，先调用初始化函数
+#!/bin/bash PackageID=0x2d1ee80d8152a1b3f941c915748a680a1467dcdffe3f261527b190deddf8e48a minta=0x5bc9a9a9ed82b9a0de90b6ec3926b162db1a5149937e88fb9c5e49e700d8cde9 #ObjectType: 0x2d1ee80d8152a1b3f941c915748a680a1467dcdffe3f261527b190deddf8e48a::ctfa::MintA&lt;0x2d1ee80d8152a1b3f941c915748a680a1467dcdffe3f261527b190deddf8e48a::ctfa::CTFA&gt; a_type=&#39;0x2d1ee80d8152a1b3f941c915748a680a1467dcdffe3f261527b190deddf8e48a::ctfa::CTFA&#39; mintb=0xb6bfd99e4341eaa3e630982750bcd4b75b1cd9d86dbeac46a83b84731bb15fb9 #ObjectType: 0x2d1ee80d8152a1b3f941c915748a680a1467dcdffe3f261527b190deddf8e48a::ctfb::MintB&lt;0x2d1ee80d8152a1b3f941c915748a680a1467dcdffe3f261527b190deddf8e48a::ctfb::CTFB&gt; b_type=&#39;0x2d1ee80d8152a1b3f941c915748a680a1467dcdffe3f261527b190deddf8e48a::ctfb::CTFB&#39; sui client call --package $PackageID \ --module vault \ --function initialize \ --type-args $a_type $b_type \ --args $minta $mintb \ # public entry fun initialize&lt;A,B&gt;(capa: MintA&lt;A&gt;, capb: MintB&lt;B&gt;,ctx: &amp;mut TxContext) { # let vault = Vault&lt;A, B&gt; { # id: object::new(ctx), # coin_a: coin::into_balance(ctfa::mint_for_vault(capa, ctx)), # coin_b: coin::into_balance(ctfb::mint_for_vault(capb, ctx)), # flashed: false # }; # transfer::share_object(vault); # } 初始化操作会给vault 100个coinA和100个coinB,给sender 10个coinA和10个coinB...</p>
   </div>
-  <footer class="entry-footer"><span title='2024-06-03 01:46:20 +0000 UTC'>June 3, 2024</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Theme PaperMod</footer>
+  <footer class="entry-footer"><span title='2024-06-03 01:46:20 +0000 UTC'>June 3, 2024</span>&nbsp;·&nbsp;2 min&nbsp;·&nbsp;Theme PaperMod</footer>
   <a class="entry-link" aria-label="post link to MoveCTF2024_Swap" href="https://m4sk93.github.io/posts/movectf2024_swap/"></a>
 </article>
 
