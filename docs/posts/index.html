@@ -169,9 +169,12 @@
     </h2>
   </header>
   <div class="entry-content">
-    <p>https://2024.justctf.team/challenges
-有三道blockchain题目，都是sui move的,
-这些题目使用sui-ctf-framework进行部署，我觉得还挺有意思的，试试用这个框架出一道checkin题目。</p>
+    <p>https://2024.justctf.team/challenges 有三道blockchain题目，都是sui move的,
+这些题目使用sui-ctf-framework进行部署，我觉得还挺有意思的.
+以tos_docker.tar.gz这道签到题为例，分析下出题框架.
+调用solve https://github.com/m4sk93/movectf/blob/b73a9ca26fd44b00e00eeca837ea2b481bf35c45/justctf2024/tos/sources/framework/src/main.rs#L162-L187
+准备参数时，需要获取一些ObjectID
+// Prepare Function Call Arguments let mut args_solve: Vec&lt;SuiValue&gt; = Vec::new(); let spellbook = SuiValue::Object(FakeID::Enumerated(2, 0), None); args_solve.push(spellbook.clone()); let type_args_solve: Vec&lt;TypeTag&gt; = Vec::new(); // Call solve Function let ret_val = match sui_ctf_framework::call_function( &amp;mut adapter, sol_addr, &#34;solve&#34;, &#34;solve&#34;, args_solve, type_args_solve, Some(&#34;solver&#34;.to_string()), ).await { Ok(output) =&gt; output, Err(e) =&gt; { let _ = adapter.cleanup_resources().await; println!(&#34;[SERVER] error: {e}&#34;); return Err(&#34;error during call to solve::solve&#34;.into()) } }; println!...</p>
   </div>
   <footer class="entry-footer"><span title='2024-06-19 00:44:30 +0000 UTC'>June 19, 2024</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Theme PaperMod</footer>
   <a class="entry-link" aria-label="post link to JustCTF2024" href="https://m4sk93.github.io/posts/justctf2024/"></a>

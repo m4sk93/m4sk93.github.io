@@ -7,9 +7,12 @@
 <meta name="robots" content="index, follow">
 <title>JustCTF2024 | M4sk</title>
 <meta name="keywords" content="">
-<meta name="description" content="https://2024.justctf.team/challenges
-有三道blockchain题目，都是sui move的,
-这些题目使用sui-ctf-framework进行部署，我觉得还挺有意思的，试试用这个框架出一道checkin题目。">
+<meta name="description" content="https://2024.justctf.team/challenges 有三道blockchain题目，都是sui move的,
+这些题目使用sui-ctf-framework进行部署，我觉得还挺有意思的.
+以tos_docker.tar.gz这道签到题为例，分析下出题框架.
+调用solve https://github.com/m4sk93/movectf/blob/b73a9ca26fd44b00e00eeca837ea2b481bf35c45/justctf2024/tos/sources/framework/src/main.rs#L162-L187
+准备参数时，需要获取一些ObjectID
+// Prepare Function Call Arguments let mut args_solve: Vec&lt;SuiValue&gt; = Vec::new(); let spellbook = SuiValue::Object(FakeID::Enumerated(2, 0), None); args_solve.push(spellbook.clone()); let type_args_solve: Vec&lt;TypeTag&gt; = Vec::new(); // Call solve Function let ret_val = match sui_ctf_framework::call_function( &amp;mut adapter, sol_addr, &#34;solve&#34;, &#34;solve&#34;, args_solve, type_args_solve, Some(&#34;solver&#34;.to_string()), ).await { Ok(output) =&gt; output, Err(e) =&gt; { let _ = adapter.cleanup_resources().await; println!(&#34;[SERVER] error: {e}&#34;); return Err(&#34;error during call to solve::solve&#34;.into()) } }; println!">
 <meta name="author" content="Theme PaperMod">
 <link rel="canonical" href="https://m4sk93.github.io/posts/justctf2024/">
 <link crossorigin="anonymous" href="/assets/css/stylesheet.b609c58d5c11bb90b1a54e04005d74ad1ddf22165eb79f5533967e57df9c3b50.css" integrity="sha256-tgnFjVwRu5CxpU4EAF10rR3fIhZet59VM5Z&#43;V9&#43;cO1A=" rel="preload stylesheet" as="style">
@@ -58,9 +61,12 @@
 
     </style>
 </noscript><meta property="og:title" content="JustCTF2024" />
-<meta property="og:description" content="https://2024.justctf.team/challenges
-有三道blockchain题目，都是sui move的,
-这些题目使用sui-ctf-framework进行部署，我觉得还挺有意思的，试试用这个框架出一道checkin题目。" />
+<meta property="og:description" content="https://2024.justctf.team/challenges 有三道blockchain题目，都是sui move的,
+这些题目使用sui-ctf-framework进行部署，我觉得还挺有意思的.
+以tos_docker.tar.gz这道签到题为例，分析下出题框架.
+调用solve https://github.com/m4sk93/movectf/blob/b73a9ca26fd44b00e00eeca837ea2b481bf35c45/justctf2024/tos/sources/framework/src/main.rs#L162-L187
+准备参数时，需要获取一些ObjectID
+// Prepare Function Call Arguments let mut args_solve: Vec&lt;SuiValue&gt; = Vec::new(); let spellbook = SuiValue::Object(FakeID::Enumerated(2, 0), None); args_solve.push(spellbook.clone()); let type_args_solve: Vec&lt;TypeTag&gt; = Vec::new(); // Call solve Function let ret_val = match sui_ctf_framework::call_function( &amp;mut adapter, sol_addr, &#34;solve&#34;, &#34;solve&#34;, args_solve, type_args_solve, Some(&#34;solver&#34;.to_string()), ).await { Ok(output) =&gt; output, Err(e) =&gt; { let _ = adapter.cleanup_resources().await; println!(&#34;[SERVER] error: {e}&#34;); return Err(&#34;error during call to solve::solve&#34;.into()) } }; println!" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://m4sk93.github.io/posts/justctf2024/" />
 <meta property="og:image" content="https://m4sk93.github.io/images/papermod-cover.png" />
@@ -71,9 +77,12 @@
 <meta name="twitter:card" content="summary_large_image" />
 <meta name="twitter:image" content="https://m4sk93.github.io/images/papermod-cover.png" />
 <meta name="twitter:title" content="JustCTF2024"/>
-<meta name="twitter:description" content="https://2024.justctf.team/challenges
-有三道blockchain题目，都是sui move的,
-这些题目使用sui-ctf-framework进行部署，我觉得还挺有意思的，试试用这个框架出一道checkin题目。"/>
+<meta name="twitter:description" content="https://2024.justctf.team/challenges 有三道blockchain题目，都是sui move的,
+这些题目使用sui-ctf-framework进行部署，我觉得还挺有意思的.
+以tos_docker.tar.gz这道签到题为例，分析下出题框架.
+调用solve https://github.com/m4sk93/movectf/blob/b73a9ca26fd44b00e00eeca837ea2b481bf35c45/justctf2024/tos/sources/framework/src/main.rs#L162-L187
+准备参数时，需要获取一些ObjectID
+// Prepare Function Call Arguments let mut args_solve: Vec&lt;SuiValue&gt; = Vec::new(); let spellbook = SuiValue::Object(FakeID::Enumerated(2, 0), None); args_solve.push(spellbook.clone()); let type_args_solve: Vec&lt;TypeTag&gt; = Vec::new(); // Call solve Function let ret_val = match sui_ctf_framework::call_function( &amp;mut adapter, sol_addr, &#34;solve&#34;, &#34;solve&#34;, args_solve, type_args_solve, Some(&#34;solver&#34;.to_string()), ).await { Ok(output) =&gt; output, Err(e) =&gt; { let _ = adapter.cleanup_resources().await; println!(&#34;[SERVER] error: {e}&#34;); return Err(&#34;error during call to solve::solve&#34;.into()) } }; println!"/>
 
 
 <script type="application/ld+json">
@@ -102,12 +111,12 @@
   "@type": "BlogPosting",
   "headline": "JustCTF2024",
   "name": "JustCTF2024",
-  "description": "https://2024.justctf.team/challenges\n有三道blockchain题目，都是sui move的,\n这些题目使用sui-ctf-framework进行部署，我觉得还挺有意思的，试试用这个框架出一道checkin题目。",
+  "description": "https://2024.justctf.team/challenges 有三道blockchain题目，都是sui move的,\n这些题目使用sui-ctf-framework进行部署，我觉得还挺有意思的.\n以tos_docker.tar.gz这道签到题为例，分析下出题框架.\n调用solve https://github.com/m4sk93/movectf/blob/b73a9ca26fd44b00e00eeca837ea2b481bf35c45/justctf2024/tos/sources/framework/src/main.rs#L162-L187\n准备参数时，需要获取一些ObjectID\n// Prepare Function Call Arguments let mut args_solve: Vec\u0026lt;SuiValue\u0026gt; = Vec::new(); let spellbook = SuiValue::Object(FakeID::Enumerated(2, 0), None); args_solve.push(spellbook.clone()); let type_args_solve: Vec\u0026lt;TypeTag\u0026gt; = Vec::new(); // Call solve Function let ret_val = match sui_ctf_framework::call_function( \u0026amp;mut adapter, sol_addr, \u0026#34;solve\u0026#34;, \u0026#34;solve\u0026#34;, args_solve, type_args_solve, Some(\u0026#34;solver\u0026#34;.to_string()), ).await { Ok(output) =\u0026gt; output, Err(e) =\u0026gt; { let _ = adapter.cleanup_resources().await; println!(\u0026#34;[SERVER] error: {e}\u0026#34;); return Err(\u0026#34;error during call to solve::solve\u0026#34;.into()) } }; println!",
   "keywords": [
     
   ],
-  "articleBody": "https://2024.justctf.team/challenges\n有三道blockchain题目，都是sui move的,\n这些题目使用sui-ctf-framework进行部署，我觉得还挺有意思的，试试用这个框架出一道checkin题目。\n",
-  "wordCount" : "4",
+  "articleBody": "https://2024.justctf.team/challenges 有三道blockchain题目，都是sui move的,\n这些题目使用sui-ctf-framework进行部署，我觉得还挺有意思的.\n以tos_docker.tar.gz这道签到题为例，分析下出题框架.\n调用solve https://github.com/m4sk93/movectf/blob/b73a9ca26fd44b00e00eeca837ea2b481bf35c45/justctf2024/tos/sources/framework/src/main.rs#L162-L187\n准备参数时，需要获取一些ObjectID\n// Prepare Function Call Arguments let mut args_solve: Vec = Vec::new(); let spellbook = SuiValue::Object(FakeID::Enumerated(2, 0), None); args_solve.push(spellbook.clone()); let type_args_solve: Vec = Vec::new(); // Call solve Function let ret_val = match sui_ctf_framework::call_function( \u0026mut adapter, sol_addr, \"solve\", \"solve\", args_solve, type_args_solve, Some(\"solver\".to_string()), ).await { Ok(output) =\u003e output, Err(e) =\u003e { let _ = adapter.cleanup_resources().await; println!(\"[SERVER] error: {e}\"); return Err(\"error during call to solve::solve\".into()) } }; println!(\"[SERVER] Return value {:#?}\", ret_val); println!(\"\"); ",
+  "wordCount" : "77",
   "inLanguage": "en",
   "image": "https://m4sk93.github.io/images/papermod-cover.png","datePublished": "2024-06-19T00:44:30Z",
   "dateModified": "2024-06-19T00:44:30Z",
@@ -205,12 +214,55 @@
     <div class="post-meta"><span title='2024-06-19 00:44:30 +0000 UTC'>June 19, 2024</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Theme PaperMod&nbsp;|&nbsp;<a href="https://github.com/adityatelange/hugo-PaperMod/tree/exampleSite/content/posts/JustCTF2024.md" rel="noopener noreferrer" target="_blank">Suggest Changes</a>
 
 </div>
-  </header> 
+  </header> <div class="toc">
+    <details >
+        <summary accesskey="c" title="(Alt + C)">
+            <span class="details">Table of Contents</span>
+        </summary>
 
-  <div class="post-content"><p><a href="https://2024.justctf.team/challenges">https://2024.justctf.team/challenges</a></p>
-<p>有三道blockchain题目，都是sui move的,</p>
-<p>这些题目使用<a href="https://github.com/otter-sec/sui-ctf-framework">sui-ctf-framework</a>进行部署，我觉得还挺有意思的，试试用这个框架出一道checkin题目。</p>
+        <div class="inner"><ul>
+                <li>
+                    <a href="#%e8%b0%83%e7%94%a8solve" aria-label="调用solve">调用solve</a>
+                </li>
+            </ul>
+        </div>
+    </details>
+</div>
 
+  <div class="post-content"><p><a href="https://2024.justctf.team/challenges">https://2024.justctf.team/challenges</a>
+有三道blockchain题目，都是sui move的,</p>
+<p>这些题目使用<a href="https://github.com/otter-sec/sui-ctf-framework/tree/justctf2024">sui-ctf-framework</a>进行部署，我觉得还挺有意思的.</p>
+<p>以tos_docker.tar.gz这道签到题为例，分析下出题框架.</p>
+<h2 id="调用solve">调用solve<a hidden class="anchor" aria-hidden="true" href="#调用solve">#</a></h2>
+<p><a href="https://github.com/m4sk93/movectf/blob/b73a9ca26fd44b00e00eeca837ea2b481bf35c45/justctf2024/tos/sources/framework/src/main.rs#L162-L187">https://github.com/m4sk93/movectf/blob/b73a9ca26fd44b00e00eeca837ea2b481bf35c45/justctf2024/tos/sources/framework/src/main.rs#L162-L187</a></p>
+<p>准备参数时，需要获取一些ObjectID</p>
+<pre tabindex="0"><code>    // Prepare Function Call Arguments
+    let mut args_solve: Vec&lt;SuiValue&gt; = Vec::new();
+    let spellbook = SuiValue::Object(FakeID::Enumerated(2, 0), None); 
+    args_solve.push(spellbook.clone());
+
+    let type_args_solve: Vec&lt;TypeTag&gt; = Vec::new();
+
+    // Call solve Function
+    let ret_val = match sui_ctf_framework::call_function(
+        &amp;mut adapter,
+        sol_addr,
+        &#34;solve&#34;,
+        &#34;solve&#34;,
+        args_solve,
+        type_args_solve,
+        Some(&#34;solver&#34;.to_string()),
+    ).await {
+        Ok(output) =&gt; output,
+        Err(e) =&gt; {
+            let _ = adapter.cleanup_resources().await;
+            println!(&#34;[SERVER] error: {e}&#34;);
+            return Err(&#34;error during call to solve::solve&#34;.into())
+        }
+    };
+    println!(&#34;[SERVER] Return value {:#?}&#34;, ret_val);
+    println!(&#34;&#34;);
+</code></pre>
 
   </div>
 
